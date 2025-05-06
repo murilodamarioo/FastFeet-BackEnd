@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto'
+import { UniqueEntityId } from './unique-entity-id'
 
 /**
  * A generic base class for entities.
@@ -11,9 +12,9 @@ export class Entity<Props> {
    * The unique identifier of the entity.
    * 
    * @private
-   * @type {string}
+   * @type {UniqueEntityId}
    */
-  private _id: string
+  private _id: UniqueEntityId
 
   /**
    * The properties of the entity.
@@ -26,9 +27,9 @@ export class Entity<Props> {
   /**
    * Gets the unique identifier of the entity.
    * 
-   * @returns {string} The unique identifier of the entity.
+   * @returns {UniqueEntityId} The unique identifier of the entity.
    */
-  get id(): string {
+  get id(): UniqueEntityId {
     return this._id
   }
 
@@ -36,10 +37,10 @@ export class Entity<Props> {
    * Creates an instance of Entity.
    * 
    * @param {Props} props - The properties of the entity.
-   * @param {string} [id] - An optional unique identifier. If not provided, a new UUID will be generated.
+   * @param {UniqueEntityId} [id] - An optional unique identifier. If not provided, a new UUID will be generated.
    */
-  constructor(props: Props, id?: string) {
+  constructor(props: Props, id?: UniqueEntityId) {
     this.props = props
-    this._id = id ?? randomUUID()
+    this._id = id ?? new UniqueEntityId(id)
   }
 }
