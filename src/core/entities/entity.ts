@@ -38,8 +38,8 @@ export class Entity<Props> {
    * @param {Props} props - The properties of the entity.
    * @param {UniqueEntityId} [id] - An optional unique identifier. If not provided, a new UUID will be generated.
    */
-  constructor(props: Props, id?: UniqueEntityId) {
+  protected constructor(props: Props, id?: UniqueEntityId) {
     this.props = props
-    this._id = id ?? new UniqueEntityId(id)
+    this._id = id ?? new UniqueEntityId()
   }
 }
