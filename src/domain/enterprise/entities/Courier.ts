@@ -2,19 +2,14 @@ import { Entity } from '@core/entities/entity'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 
 export interface CourierProps {
-  // Personal data
   name: string
   cpf: string
   email: string
   password: string
-  
-  // Contact info
-  phone: string
 }
 
 export class Courier extends Entity<CourierProps> {
 
-  // Personal data Getters and Setters
   get name(): string { return this.props.name }
   set name(name: string) { this.props.name = name }
 
@@ -27,9 +22,6 @@ export class Courier extends Entity<CourierProps> {
   get password(): string { return this.props.password }
   set password(password: string) { this.props.password = password }
 
-  // Contact info Getters and Setters
-  get phone(): string { return this.props.phone }
-  set phone(phone: string) { this.props.phone = phone }
 
   /**
    * Creates a new instance of Courier.
