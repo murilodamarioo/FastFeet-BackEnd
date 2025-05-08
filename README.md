@@ -2,7 +2,7 @@
 
 - [ ] The application must have two types of users: delivery person and/or admin.
 - [ ] It must be possible to log in using CPF and password.
-- [ ] It must be possible to perform CRUD operations for delivery persons.
+- [ ] It must be possible to perform CRUD operations for couriers.
 - [ ] It must be possible to perform CRUD operations for orders.
 - [ ] It must be possible to perform CRUD operations for recipients.
 - [ ] It must be possible to mark an order as "waiting" (available for pickup).

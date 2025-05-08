@@ -9,6 +9,15 @@ export abstract class CourierRepository {
    * @returns {Promise<Courier | null>} A promise that resolves with the found courier, or null if not found.
    */
   abstract findByCpf(cpf: string): Promise<Courier | null>
+
+
+  /**
+   * Retrieves a courier by its ID.
+   * 
+   * @param {string} id - The ID of the courier to be retrieved.
+   * @returns {Promise<Courier | null>} A promise that resolves with the found courier, or null if not found.
+   */
+  abstract findById(id: string): Promise<Courier | null>
   
   /**
    * Creates a new courier.
