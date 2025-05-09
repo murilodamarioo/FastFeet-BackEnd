@@ -8,21 +8,13 @@ export class InMemoryCourierRepository extends CourierRepository {
   async findByCpf(cpf: string): Promise<Courier | null> {
     const courier = this.couriers.find(courier => courier.cpf === cpf)
 
-    if (!courier) {
-      return null
-    }
-
-    return courier
+    return courier ? courier : null
   }
 
   async findById(id: string): Promise<Courier | null> {
     const courier = this.couriers.find(courier => courier.id.toString()=== id)
 
-    if (!courier) {
-      return null
-    }
-
-    return courier
+    return courier ? courier : null
   }
 
   async create(courier: Courier): Promise<void> {
