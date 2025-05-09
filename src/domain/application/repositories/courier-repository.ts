@@ -10,7 +10,6 @@ export abstract class CourierRepository {
    */
   abstract findByCpf(cpf: string): Promise<Courier | null>
 
-
   /**
    * Retrieves a courier by its ID.
    * 
@@ -26,6 +25,14 @@ export abstract class CourierRepository {
    * @returns {Promise<void>} A promise that resolves with void after the courier creation.
    */
   abstract create(courier: Courier): Promise<void>
+
+  /**
+   * Updates an existing courier or saves changes to a courier.
+   * 
+   * @param {Courier} courier - The courier entity with updated information to be saved.
+   * @returns {Promise<Courier>} A promise that resolves with the updated courier after the save operation.
+   */
+  abstract save(courier: Courier): Promise<void>
 
   /**
    * Deletes a courier by its ID.
