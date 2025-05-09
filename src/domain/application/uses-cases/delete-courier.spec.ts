@@ -1,19 +1,19 @@
 import { InMemoryCourierRepository } from '@test/repositories/in-memory-courier-reposiotry'
-import { GetCourierUseCase } from './get-courier'
+import { DeleteCourierUseCase } from './delete-courier'
 import { makeCourier } from '@test/factories/make-courier'
 import { CourierNotFoundError } from './errors/courier-not-found-error'
 
-let sut: GetCourierUseCase
+let sut: DeleteCourierUseCase
 let inMemoryCourierRepository: InMemoryCourierRepository
 
-describe('Get Courier', () => {
+describe('Delete Courier', () => {
 
   beforeEach(() => {
     inMemoryCourierRepository = new InMemoryCourierRepository()
-    sut = new GetCourierUseCase(inMemoryCourierRepository)
+    sut = new DeleteCourierUseCase(inMemoryCourierRepository)
   })
 
-  it('should be able to get a courier by ID', async () => {
+  it('should be able to delete a courier by ID', async () => {
     const courier = makeCourier()
 
     await inMemoryCourierRepository.create(courier)
@@ -23,12 +23,10 @@ describe('Get Courier', () => {
     })
 
     expect(response.isSuccess()).toBe(true)
-    expect(response.value).toEqual({
-      courier: inMemoryCourierRepository.couriers[0]
-    })
+    expect(inMemoryCourierRepository.couriers).toHaveLength(0)
   })
 
-  it('should not be able to get a courier with an invalid ID', async () => {
+  it('should not be able to delete a courier with an invalid ID', async () => {
     const courier = makeCourier()
 
     await inMemoryCourierRepository.create(courier)
@@ -38,7 +36,7 @@ describe('Get Courier', () => {
     })
 
     expect(response.isFailure()).toBe(true)
-    expect(inMemoryCourierRepository.couriers.length).toBe(1)
-    expect(response.value).instanceOf(CourierNotFoundError)
+    expect(inMemoryCourierRepository.couriers).toHaveLength(1)
+    expect(response.value).toBeInstanceOf(CourierNotFoundError)
   })
 })

@@ -27,4 +27,12 @@ export abstract class CourierRepository {
    */
   abstract create(courier: Courier): Promise<void>
 
+  /**
+   * Deletes a courier by its ID.
+   * 
+   * @param {string} id - The ID of the courier to be deleted.
+   * @returns {Promise<void>} A promise that resolves with void after the courier is deleted.
+   */
+  abstract delete(id: string): Promise<void>
+
 }
