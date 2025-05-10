@@ -26,4 +26,12 @@ export abstract class RecipientRepository {
    */
   abstract create(recipient: Recipient): Promise<void>
 
+  /**
+   * Saves the recipient entity.
+   * 
+   * @param {Recipient} recipient - The recipient entity to be saved.
+   * @returns {Promise<void>} A promise that resolves with void after the recipient is saved.
+   */
+  abstract save(recipient: Recipient): Promise<void>
+
 }

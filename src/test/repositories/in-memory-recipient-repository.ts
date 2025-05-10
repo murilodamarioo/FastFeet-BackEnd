@@ -17,8 +17,13 @@ export class InMemoryRecipientRepository extends RecipientRepository {
     return recipient ? recipient : null
   }
 
-
   async create(recipient: Recipient): Promise<void> {
     this.recipients.push(recipient)
+  }
+
+  async save(recipient: Recipient): Promise<void> {
+    const itemIndex = this.recipients.findIndex((item) => item.id === recipient.id)
+
+    this.recipients[itemIndex] = recipient
   }
 }
