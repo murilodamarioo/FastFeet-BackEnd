@@ -19,8 +19,7 @@ export class DeleteCourierUseCase {
       return failure(new CourierNotFoundError())
     }
 
-    this.courierRepository.delete(courierId)
-
+    await this.courierRepository.delete(courierId)
 
     return success(null)
   }

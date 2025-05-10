@@ -34,4 +34,12 @@ export abstract class RecipientRepository {
    */
   abstract save(recipient: Recipient): Promise<void>
 
+  /**
+   * Deletes a recipient by their ID.
+   * 
+   * @param {string} id - The ID of the recipient to be deleted.
+   * @returns {Promise<void>} A promise that resolves with void after the recipient is deleted.
+   */
+  abstract delete(id: string): Promise<void>
+
 }

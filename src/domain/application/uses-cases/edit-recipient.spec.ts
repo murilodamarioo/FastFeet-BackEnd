@@ -6,7 +6,7 @@ import { RecipientNotFoundError } from './errors/recipient-not-found-error'
 let sut: EditRecipientUseCase
 let inMemoryRecipientRepository: InMemoryRecipientRepository
 
-describe('EditRecipientUseCase', () => {
+describe('Edit Recipient', () => {
 
   beforeEach(() => {
     inMemoryRecipientRepository = new InMemoryRecipientRepository
