@@ -11,6 +11,14 @@ export abstract class RecipientRepository {
   abstract findByEmail(email: string): Promise<Recipient | null>
 
   /**
+   * Retrieves a recipient by their ID.
+   * 
+   * @param {string} id - The ID of the recipient to be retrieved.
+   * @returns {Promise<Recipient | null>} A promise that resolves with the found recipient, or null if not found.
+   */
+  abstract findById(id: string): Promise<Recipient | null>
+
+  /**
    * Creates a new recipient.
    * 
    * @param {Recipient} recipient - The recipient entity to be created.

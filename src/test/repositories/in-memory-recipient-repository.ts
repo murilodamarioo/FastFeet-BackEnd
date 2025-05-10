@@ -11,6 +11,13 @@ export class InMemoryRecipientRepository extends RecipientRepository {
     return recipient ? recipient : null
   }
 
+  async findById(id: string): Promise<Recipient | null> {
+    const recipient = this.recipients.find((recipient) => recipient.id.toString() === id)
+
+    return recipient ? recipient : null
+  }
+
+
   async create(recipient: Recipient): Promise<void> {
     this.recipients.push(recipient)
   }
