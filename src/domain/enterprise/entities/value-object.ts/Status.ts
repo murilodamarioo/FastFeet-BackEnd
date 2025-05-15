@@ -1,4 +1,4 @@
-enum StatusEnum {
+export enum StatusEnum {
   PENDING = 'pending',
   PICKED_UP = 'picked_up',
   DELIVERED = 'delivered',

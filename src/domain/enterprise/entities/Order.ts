@@ -1,7 +1,7 @@
 import { Entity } from '@core/entities/entity'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 import { Optional } from '@core/types/optional'
-import { Status } from './value-object.ts/Status'
+import { StatusEnum } from './value-object.ts/Status'
 
 export interface OrderProps {
   recipientId: UniqueEntityId
@@ -10,7 +10,7 @@ export interface OrderProps {
   pickup?: Date | null
   deliveredAt?: Date | null
   photo: string
-  status: Status
+  status: StatusEnum
 }
 
 export class Order extends Entity<OrderProps> {
@@ -24,23 +24,28 @@ export class Order extends Entity<OrderProps> {
 
 
   /**
- * Creates a new instance of Order.
- *
- * @param {Optional<OrderProps, 'postedAt' | 'pickup' | 'deliveredAt'>} props - Object containing the order's properties.
- * @param {UniqueEntityId} [id] - Unique ID of the order (optional).
- * @returns {Order} Created order instance.
- *
- * @note The `postedAt`, `pickup`, and `deliveredAt` properties are optional and will default to the current date if not provided.
- */
+   * Creates a new instance of the `Order` entity.
+   *
+   * @param {Optional<OrderProps, 'photo' | 'status'>} props - 
+   * An object containing the properties of the order. The following properties are optional:
+   * - `photo`: Defaults to an empty string if not provided.
+   * - `status`: Defaults to `StatusEnum.PENDING` if not provided.
+   * - `postedAt`: Defaults to the current date if not provided.
+   * @param {UniqueEntityId} [id] - The unique identifier for the order (optional).
+   * 
+   * @returns {Order} A new instance of the `Order` entity.
+   *
+   * @note The `postedAt` property will default to the current date if not provided.
+   */
   static create(
-      props: Optional<OrderProps, 'postedAt' | 'pickup' | 'deliveredAt'>, 
+      props: Optional<OrderProps, | 'photo' | 'status'>, 
       id?: UniqueEntityId
     ): Order {
       const order = new Order({
         ...props,
         postedAt: props.postedAt ?? new Date(),
-        pickup: props.pickup ?? new Date(),
-        deliveredAt: props.deliveredAt ?? new Date(),
+        photo: props.photo ?? '',
+        status: props.status ?? StatusEnum.PENDING,
       }, id)
 
       return order
