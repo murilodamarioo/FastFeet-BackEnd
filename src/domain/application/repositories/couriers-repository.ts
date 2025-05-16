@@ -1,6 +1,6 @@
 import { Courier } from '@domain/enterprise/entities/Courier'
 
-export abstract class CourierRepository {
+export abstract class CouriersRepository {
 
   /**
    * Retrieves a courier by its CPF.

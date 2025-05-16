@@ -1,7 +1,7 @@
-import { CourierRepository } from '@domain/application/repositories/courier-repository'
+import { CouriersRepository } from '@domain/application/repositories/couriers-repository'
 import { Courier } from '@domain/enterprise/entities/Courier'
 
-export class InMemoryCourierRepository extends CourierRepository {
+export class InMemoryCourierRepository extends CouriersRepository {
 
   public couriers: Courier[] = []
   

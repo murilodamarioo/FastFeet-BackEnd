@@ -1,6 +1,6 @@
 import { Recipient } from '@domain/enterprise/entities/Recipient'
 
-export abstract class RecipientRepository {
+export abstract class RecipientsRepository {
 
   /**
    * Retrieves a recipient by their email.

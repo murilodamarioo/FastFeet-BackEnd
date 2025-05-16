@@ -1,6 +1,6 @@
 import { Order } from '@domain/enterprise/entities/Order'
 
-export abstract class OrderRepository {
+export abstract class OrdersRepository {
   
   /**
    * Persists a new `Order` entity in the repository.

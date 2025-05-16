@@ -1,5 +1,5 @@
 import { Courier } from '@domain/enterprise/entities/Courier'
-import { CourierRepository } from '../repositories/courier-repository'
+import { CouriersRepository } from '../repositories/couriers-repository'
 import { Either, failure, success } from '@core/either'
 import { CourierAlreadyExistsError } from './errors/courier-already-exists-error'
 
@@ -14,11 +14,11 @@ type ResgisterCourierUseCaseResponse = Either<CourierAlreadyExistsError, { couri
 
 export class RegisterCourierUseCase {
 
-  constructor(private courierRepository: CourierRepository) {}
+  constructor(private couriersRepository: CouriersRepository) {}
 
   async execute({ name, email, cpf, password }: RegisterCourierUseCaseRequest): Promise<ResgisterCourierUseCaseResponse> {
 
-    const courierWithSameCpf = await this.courierRepository.findByCpf(cpf)
+    const courierWithSameCpf = await this.couriersRepository.findByCpf(cpf)
 
     if (courierWithSameCpf) {
       return failure(new CourierAlreadyExistsError())
@@ -31,7 +31,7 @@ export class RegisterCourierUseCase {
       cpf
     })
 
-    await this.courierRepository.create(courier)
+    await this.couriersRepository.create(courier)
 
     return success({ courier })
   }

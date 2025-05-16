@@ -1,7 +1,7 @@
-import { OrderRepository } from '@domain/application/repositories/order-repository'
+import { OrdersRepository } from '@domain/application/repositories/orders-repository'
 import { Order } from '@domain/enterprise/entities/Order';
 
-export class InMemoryOrderRepository extends OrderRepository {
+export class InMemoryOrderRepository extends OrdersRepository {
 
   public items: Order[] = []
 

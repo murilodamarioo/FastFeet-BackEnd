@@ -1,7 +1,7 @@
-import { RecipientRepository } from "@domain/application/repositories/recipient-repository"
+import { RecipientsRepository } from "@domain/application/repositories/recipients-repository"
 import { Recipient } from "@domain/enterprise/entities/Recipient"
 
-export class InMemoryRecipientRepository extends RecipientRepository {
+export class InMemoryRecipientRepository extends RecipientsRepository {
   
   public recipients: Recipient[] = []
 

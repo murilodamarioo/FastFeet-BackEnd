@@ -1,5 +1,5 @@
 import { Either, failure, success } from '@core/either'
-import { RecipientRepository } from '../repositories/recipient-repository'
+import { RecipientsRepository } from '../repositories/recipients-repository'
 import { RecipientNotFoundError } from './errors/recipient-not-found-error'
 
 export interface DeleteRecipientUseCaseRequest {
@@ -10,16 +10,16 @@ type DeleteRecipientUseCaseResponse = Either<RecipientNotFoundError, null>
 
 export class DeleteRecipientUseCase {
 
-  constructor(private recipientRepository: RecipientRepository) {}
+  constructor(private recipientsRepository: RecipientsRepository) {}
 
   async execute({ recipientId }: DeleteRecipientUseCaseRequest): Promise<DeleteRecipientUseCaseResponse> {
-    const recipient = await this.recipientRepository.findById(recipientId)
+    const recipient = await this.recipientsRepository.findById(recipientId)
 
     if (!recipient) {
       return failure(new RecipientNotFoundError())
     }
 
-    await this.recipientRepository.delete(recipientId)
+    await this.recipientsRepository.delete(recipientId)
 
     return success(null)
   }

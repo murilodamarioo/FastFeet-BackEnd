@@ -1,6 +1,6 @@
 import { Either, success } from '@core/either'
 import { Order } from '@domain/enterprise/entities/Order'
-import { OrderRepository } from '../repositories/order-repository'
+import { OrdersRepository } from '../repositories/orders-repository'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 
 export interface CreateOrderUseCaseRequest {
@@ -12,7 +12,7 @@ type CreateOrderUseCaseResponse = Either<null, { order: Order }>
 
 export class CreateOrderUseCase {
 
-  constructor(private orderepository: OrderRepository) {}
+  constructor(private orderepository: OrdersRepository) {}
 
   async execute({ recipientId, courierId }: CreateOrderUseCaseRequest): Promise<CreateOrderUseCaseResponse> {
     const order = Order.create({

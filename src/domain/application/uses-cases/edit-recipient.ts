@@ -1,5 +1,5 @@
 import { Either, failure, success } from '@core/either'
-import { RecipientRepository } from '../repositories/recipient-repository'
+import { RecipientsRepository } from '../repositories/recipients-repository'
 import { RecipientNotFoundError } from './errors/recipient-not-found-error'
 import { Recipient } from '@domain/enterprise/entities/Recipient'
 
@@ -19,7 +19,7 @@ type EditCourierUseCaseResponse = Either<RecipientNotFoundError, { recipient: Re
 
 export class EditRecipientUseCase {
 
-  constructor(private recipientRepository: RecipientRepository) {}
+  constructor(private recipientsRepository: RecipientsRepository) {}
 
   async execute({ 
     recipientId,
@@ -32,7 +32,7 @@ export class EditRecipientUseCase {
     neighborhood,
     state
    }: EditRecipientUseCaseRequest): Promise<EditCourierUseCaseResponse> {
-    const recipient = await this.recipientRepository.findById(recipientId)
+    const recipient = await this.recipientsRepository.findById(recipientId)
 
     if (!recipient) {
       return failure(new RecipientNotFoundError())
@@ -47,7 +47,7 @@ export class EditRecipientUseCase {
     recipient.neighborhood = neighborhood
     recipient.state = state
 
-    await this.recipientRepository.save(recipient)
+    await this.recipientsRepository.save(recipient)
 
     return success({ recipient })
   }

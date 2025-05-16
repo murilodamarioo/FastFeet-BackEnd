@@ -1,5 +1,5 @@
 import { Either, failure, success } from '@core/either'
-import { CourierRepository } from '../repositories/courier-repository'
+import { CouriersRepository } from '../repositories/couriers-repository'
 import { CourierNotFoundError } from './errors/courier-not-found-error'
 
 export interface DeleteCourierUseCaseRequest {
@@ -10,16 +10,16 @@ type DeleteCourierUseCaseResponse = Either<CourierNotFoundError, null>
 
 export class DeleteCourierUseCase {
 
-  constructor(private courierRepository: CourierRepository) {}
+  constructor(private couriersRepository: CouriersRepository) {}
 
   async execute({ courierId }: DeleteCourierUseCaseRequest): Promise<DeleteCourierUseCaseResponse> {
-    const courier = await this.courierRepository.findById(courierId)
+    const courier = await this.couriersRepository.findById(courierId)
 
     if(!courier) {
       return failure(new CourierNotFoundError())
     }
 
-    await this.courierRepository.delete(courierId)
+    await this.couriersRepository.delete(courierId)
 
     return success(null)
   }

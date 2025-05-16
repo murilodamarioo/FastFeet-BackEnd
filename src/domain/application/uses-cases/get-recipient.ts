@@ -1,5 +1,5 @@
 import { Either, failure, success } from '@core/either'
-import { RecipientRepository } from '../repositories/recipient-repository'
+import { RecipientsRepository } from '../repositories/recipients-repository'
 import { RecipientNotFoundError } from './errors/recipient-not-found-error'
 import { Recipient } from '@domain/enterprise/entities/Recipient'
 
@@ -11,7 +11,7 @@ type GetRecipientUseCaseResponse = Either<RecipientNotFoundError, { recipient: R
 
 export class GetRecipientUseCase {
 
-  constructor(private recipientRepositiry: RecipientRepository) {}
+  constructor(private recipientRepositiry: RecipientsRepository) {}
 
   async execute({ recipientId }: GetRecipientUseCaseRequest): Promise<GetRecipientUseCaseResponse> {
     const recipient = await this.recipientRepositiry.findById(recipientId)

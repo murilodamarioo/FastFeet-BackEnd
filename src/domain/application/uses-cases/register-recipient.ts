@@ -1,7 +1,7 @@
 import { Either, failure, success } from '@core/either'
 import { Recipient } from '@domain/enterprise/entities/Recipient'
 import { RecipientAlreadyExistsError } from './errors/recipient-already-exists-error'
-import { RecipientRepository } from '../repositories/recipient-repository'
+import { RecipientsRepository } from '../repositories/recipients-repository'
 
 export interface RegisterRecipientUseCaseRequest {
     name: string
@@ -18,7 +18,7 @@ type RegisterRecipientUseCaseResponse = Either<RecipientAlreadyExistsError, { re
 
 export class RegisterRecipientUseCase {
 
-  constructor(private recipientRepository: RecipientRepository) {}
+  constructor(private recipientsRepository: RecipientsRepository) {}
 
   async execute({ 
     name, 
@@ -30,7 +30,7 @@ export class RegisterRecipientUseCase {
     neighborhood, 
     state 
   }: RegisterRecipientUseCaseRequest): Promise<RegisterRecipientUseCaseResponse> {
-    const recipientWithSameEmail = await this.recipientRepository.findByEmail(email)
+    const recipientWithSameEmail = await this.recipientsRepository.findByEmail(email)
 
     if (recipientWithSameEmail) {
       return failure(new RecipientAlreadyExistsError())
@@ -47,7 +47,7 @@ export class RegisterRecipientUseCase {
       state
     })
 
-    await this.recipientRepository.create(recipient)
+    await this.recipientsRepository.create(recipient)
 
     return success({ recipient })
   }
