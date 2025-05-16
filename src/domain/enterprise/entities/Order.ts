@@ -23,6 +23,10 @@ export class Order extends Entity<OrderProps> {
   set photo(photo: string) { this.props.photo = photo }
 
 
+  get status(): StatusEnum { return this.props.status }
+  set status(status: StatusEnum) { this.props.status = status }
+
+
   /**
    * Creates a new instance of the `Order` entity.
    *

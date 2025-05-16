@@ -9,4 +9,12 @@ export class InMemoryOrderRepository extends OrdersRepository {
     this.items.push(order)
   }
 
+  async findManyByStatus(courierId: string, status: string): Promise<Order[]> {
+    const orders = this.items.filter((order) => 
+      order.courierId.toString() === courierId && order.status === status 
+    )
+
+    return orders
+  }
+
 }

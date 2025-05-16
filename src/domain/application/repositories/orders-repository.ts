@@ -10,4 +10,14 @@ export abstract class OrdersRepository {
    */
   abstract create(order: Order): Promise<void>
 
+
+  /**
+   * Retrieves all orders for a specific courier filtered by status.
+   *
+   * @param {string} courierId - The unique identifier of the courier.
+   * @param {string} status - The status to filter orders by.
+   * @returns {Promise<Order[]>} A promise that resolves to an array of orders matching the criteria.
+   */
+  abstract findManyByStatus(courierId: string, status: string): Promise<Order[]>
+
 }
