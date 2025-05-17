@@ -2,28 +2,34 @@ import { Entity } from '@core/entities/entity'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 import { Optional } from '@core/types/optional'
 import { StatusEnum } from './value-object.ts/Status'
+import { AggregateRoot } from '@core/entities/aggregate-root'
 
 export interface OrderProps {
   recipientId: UniqueEntityId
   courierId: UniqueEntityId
-  postedAt?: Date
-  pickup?: Date | null
+  postedAt: Date
+  pickupAt?: Date | null
   deliveredAt?: Date | null
   photo: string
   status: StatusEnum
 }
 
-export class Order extends Entity<OrderProps> {
+export class Order extends AggregateRoot<OrderProps> {
 
-  get recipientId(): UniqueEntityId { return this.props.recipientId }
+  get recipientId() { return this.props.recipientId }
 
-  get courierId(): UniqueEntityId { return this.props.courierId }
+  get courierId() { return this.props.courierId }
 
-  get photo(): string { return this.props.photo }
+  get postedAt() { return this.props.postedAt }
+
+  get pickupAt() { return this.props.pickupAt }
+
+  get deliveredAt() { return this.props.deliveredAt }
+
+  get photo() { return this.props.photo }
   set photo(photo: string) { this.props.photo = photo }
 
-
-  get status(): StatusEnum { return this.props.status }
+  get status() { return this.props.status }
   set status(status: StatusEnum) { this.props.status = status }
 
 

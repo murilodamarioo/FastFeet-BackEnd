@@ -1,14 +1,17 @@
 import { InMemoryOrderRepository } from '@test/repositories/in-memory-order-repository'
 import { CreateOrderUseCase } from './create-order'
 import { makeOrder } from '@test/factories/make-order'
+import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipient-repository'
 
 let sut: CreateOrderUseCase
+let inMemoryRecipientRepository: InMemoryRecipientRepository
 let inMemoryOrderRepository: InMemoryOrderRepository
 
 describe('Create Order', () => {
 
   beforeAll(() => {
-    inMemoryOrderRepository = new InMemoryOrderRepository()
+    inMemoryRecipientRepository = new InMemoryRecipientRepository()
+    inMemoryOrderRepository = new InMemoryOrderRepository(inMemoryRecipientRepository)
     sut = new CreateOrderUseCase(inMemoryOrderRepository)
   })
 
@@ -21,6 +24,6 @@ describe('Create Order', () => {
     })
 
     expect(response.isSuccess).toBeTruthy()
-    expect(inMemoryOrderRepository.items).toHaveLength(1)
+    expect(inMemoryOrderRepository.orders).toHaveLength(1)
   })
 })

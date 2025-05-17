@@ -1,6 +1,24 @@
 import { Order } from '@domain/enterprise/entities/Order'
+import { OrderDetails } from '@domain/enterprise/entities/value-object.ts/order-details';
 
 export abstract class OrdersRepository {
+
+  /**
+   * Retrieves an `Order` entity by its unique identifier.
+   *
+   * @param {string} id - The unique identifier of the order.
+   * @returns {Promise<Order | null>} A promise that resolves to the `Order` entity if found, or null if not found.
+   */
+  abstract findById(id: string): Promise<Order | null>
+
+  /**
+   * Retrieves detailed information about an `Order` entity by its unique identifier,
+   * including related data such as recipient details.
+   *
+   * @param {string} id - The unique identifier of the order.
+   * @returns {Promise<OrderDetails | null>} A promise that resolves to the `OrderDetails` object if found, or null if not found.
+   */
+  abstract findOrderDetailsById(id: string): Promise<OrderDetails | null> 
   
   /**
    * Persists a new `Order` entity in the repository.
@@ -9,7 +27,6 @@ export abstract class OrdersRepository {
    * @returns {Promise<void>} A promise that resolves when the operation is complete.
    */
   abstract create(order: Order): Promise<void>
-
 
   /**
    * Retrieves all orders for a specific courier filtered by status.
