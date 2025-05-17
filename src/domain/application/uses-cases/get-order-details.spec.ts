@@ -40,8 +40,6 @@ describe('Get Order', () => {
       courierId: courier.id.toString(),
     })
 
-    console.log(JSON.stringify(response))
-
     expect(response.isSuccess()).toBeTruthy()
     expect(response.value).toMatchObject({
       order: expect.objectContaining({
