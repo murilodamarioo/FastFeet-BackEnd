@@ -30,6 +30,7 @@ describe('Get Order', () => {
     const courier = makeCourier()
 
     const order = makeOrder({
+      orderName: '01',
       courierId: courier.id,
       recipientId: recipient.id,
     })

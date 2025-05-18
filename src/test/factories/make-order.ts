@@ -4,8 +4,9 @@ import { faker } from '@faker-js/faker'
 
 export function makeOrder(override: Partial<OrderProps> = {}, id?: UniqueEntityId) {
   const courier = Order.create({
-    recipientId: new UniqueEntityId(faker.string.uuid()),
-    courierId: new UniqueEntityId(faker.string.uuid()),
+    recipientId: new UniqueEntityId(),
+    courierId: new UniqueEntityId(),
+    orderName: override.orderName ?? faker.commerce.productName(),
     ...override
   }, id)
 

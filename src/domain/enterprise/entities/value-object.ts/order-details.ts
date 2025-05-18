@@ -36,7 +36,7 @@ export class OrderDetails extends ValueObject<OrderDetailsProps> {
 
   get postedAt() { return this.props.postedAt }
 
-  get pickupAt()  { return this.props.pickupAt }
+  get pickupAt() { return this.props.pickupAt }
 
   get deliveredAt() { return this.props.deliveredAt }
   
