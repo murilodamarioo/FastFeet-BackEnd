@@ -1,6 +1,6 @@
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 import { Optional } from '@core/types/optional'
-import { StatusEnum } from './value-object.ts/Status'
+import { Status } from './value-object.ts/Status'
 import { AggregateRoot } from '@core/entities/aggregate-root'
 
 export interface OrderProps {
@@ -11,7 +11,7 @@ export interface OrderProps {
   pickupAt?: Date | null
   deliveredAt?: Date | null
   photo: string
-  status: StatusEnum
+  status: Status
 }
 
 export class Order extends AggregateRoot<OrderProps> {
@@ -30,8 +30,6 @@ export class Order extends AggregateRoot<OrderProps> {
     this.props.pickupAt = value
   }
 
-  
-
   get deliveredAt() { return this.props.deliveredAt }
   set deliveredAt(value: Date | null | undefined) {
     this.props.deliveredAt = value
@@ -41,7 +39,7 @@ export class Order extends AggregateRoot<OrderProps> {
   set photo(photo: string) { this.props.photo = photo }
 
   get status() { return this.props.status }
-  set status(status: StatusEnum) { this.props.status = status }
+  set status(status: Status) { this.props.status = status }
 
 
   /**
@@ -50,7 +48,7 @@ export class Order extends AggregateRoot<OrderProps> {
    * @param {Optional<OrderProps, 'photo' | 'status'>} props - 
    * An object containing the properties of the order. The following properties are optional:
    * - `photo`: Defaults to an empty string if not provided.
-   * - `status`: Defaults to `StatusEnum.PENDING` if not provided.
+   * - `status`: Defaults to `Status.PENDING` if not provided.
    * - `postedAt`: Defaults to the current date if not provided.
    * @param {UniqueEntityId} [id] - The unique identifier for the order (optional).
    * 
@@ -66,7 +64,7 @@ export class Order extends AggregateRoot<OrderProps> {
         ...props,
         postedAt: props.postedAt ?? new Date(),
         photo: props.photo ?? '',
-        status: props.status ?? StatusEnum.PENDING,
+        status: props.status ?? Status.PENDING,
       }, id)
 
       return order

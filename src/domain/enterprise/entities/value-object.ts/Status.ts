@@ -1,36 +1,25 @@
-export enum StatusEnum {
+export enum Status {
   PENDING = 'pending',
   PICKED_UP = 'picked_up',
   DELIVERED = 'delivered',
   RETURNED = 'returned'
 }
 
-export class Status {
+export namespace StatusUtils {
 
-  public value: StatusEnum
+  export function isPending(status: Status) {
+    return status === Status.PENDING
+  }
   
-  private constructor(value: StatusEnum) {
-    this.value = value
+  export function isPickedUp(status: Status) {
+    return status === Status.PICKED_UP
   }
-
-  private getValue(): StatusEnum {
-    return this.value
+  
+  export function isDelivered(status: Status) {
+    return status === Status.DELIVERED
   }
-
-  private isPending(): boolean {
-    return this.getValue() === StatusEnum.PENDING
+  
+  export function isReturned(status: Status) {
+    return status === Status.RETURNED
   }
-
-  private isPickedUp(): boolean {
-    return this.getValue() === StatusEnum.PICKED_UP
-  }
-
-  private isDelivered(): boolean {
-    return this.getValue() === StatusEnum.DELIVERED
-  }
-
-  private isReturned(): boolean {
-    return this.getValue() === StatusEnum.RETURNED
-  }
-
 }

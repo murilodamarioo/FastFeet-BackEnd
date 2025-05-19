@@ -54,10 +54,6 @@ export class InMemoryOrderRepository implements OrdersRepository {
     return orderDetails
   }
 
-  async create(order: Order): Promise<void> {
-    this.orders.push(order)
-  }
-
   async findManyByStatus(courierId: string, status: string): Promise<Order[]> {
     const orders = this.orders.filter((order) => 
       order.courierId.toString() === courierId && order.status === status 
@@ -66,4 +62,15 @@ export class InMemoryOrderRepository implements OrdersRepository {
     return orders
   }
 
+  async create(order: Order): Promise<void> {
+    this.orders.push(order)
+  }
+
+  async save(order: Order): Promise<void> {
+    const orderIndex = this.orders.findIndex((item) => {
+      return item.id === order.id
+    })
+
+    this.orders[orderIndex] = order
+  }
 }
