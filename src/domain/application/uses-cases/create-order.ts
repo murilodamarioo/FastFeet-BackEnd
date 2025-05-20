@@ -6,6 +6,7 @@ import { UniqueEntityId } from '@core/entities/unique-entity-id'
 export interface CreateOrderUseCaseRequest {
   recipientId: string
   courierId: string
+  orderName: string
 }
 
 type CreateOrderUseCaseResponse = Either<null, { order: Order }>
@@ -14,10 +15,11 @@ export class CreateOrderUseCase {
 
   constructor(private orderepository: OrdersRepository) {}
 
-  async execute({ recipientId, courierId }: CreateOrderUseCaseRequest): Promise<CreateOrderUseCaseResponse> {
+  async execute({ recipientId, courierId, orderName }: CreateOrderUseCaseRequest): Promise<CreateOrderUseCaseResponse> {
     const order = Order.create({
       recipientId: new UniqueEntityId(recipientId),
       courierId: new UniqueEntityId(courierId),
+      orderName
     });
 
     await this.orderepository.create(order)

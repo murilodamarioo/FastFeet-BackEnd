@@ -1,22 +1,22 @@
 import { Either, failure, success } from '@core/either'
 import { OrdersRepository } from '../repositories/orders-repository'
 import { OrderNotFoundError } from './errors/order-not-found-error'
-import { Status, StatusUtils } from '@domain/enterprise/entities/value-object.ts/Status'
 import { SetOrderStatusError } from './errors/set-order-status-error'
+import { Status, StatusUtils } from '@domain/enterprise/entities/value-object.ts/Status'
 
-export interface SetOrderStatusToPickedUpUseCaseRequest {
+export interface SetOrderStatusToPendingUseCaseRequest {
   orderId: string
 }
 
-type SetOrderStatusToPickedUpUseCaseResponse = Either<OrderNotFoundError | SetOrderStatusError, null>
+type SetOrderStatusToPendingUseCaseResponse = Either<OrderNotFoundError | SetOrderStatusError, null>
 
-export class SetOrderStatusToPickedUpUseCase {
-  
+export class SetOrderStatusToPendingUseCase {
+
   constructor(private ordersRepository: OrdersRepository) {}
 
   async execute(
-    { orderId }: SetOrderStatusToPickedUpUseCaseRequest
-  ): Promise<SetOrderStatusToPickedUpUseCaseResponse> {
+    { orderId }: SetOrderStatusToPendingUseCaseRequest
+  ): Promise<SetOrderStatusToPendingUseCaseResponse> {
 
     const order = await this.ordersRepository.findById(orderId)
 
@@ -24,11 +24,11 @@ export class SetOrderStatusToPickedUpUseCase {
       return failure(new OrderNotFoundError())
     }
 
-    if (!StatusUtils.isPending(order.status)) {
-      return failure(new SetOrderStatusError(order.status, Status.PICKED_UP))
+    if (!StatusUtils.isCreated(order.status)) {
+      return failure(new SetOrderStatusError(order.status, Status.PENDING))
     }
 
-    order.status = Status.PICKED_UP
+    order.status = Status.PENDING
 
     await this.ordersRepository.save(order)
 
