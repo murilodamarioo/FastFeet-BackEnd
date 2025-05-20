@@ -52,8 +52,8 @@ describe('Fetch Orders by Status', () => {
     await inMemoryCourierRepository.create(courier)
 
     const orders = [
-      makeOrder({ courierId: courier.id }),
-      makeOrder({ courierId: courier.id }),
+      makeOrder({ courierId: courier.id, status: Status.PENDING }),
+      makeOrder({ courierId: courier.id, status: Status.PENDING }),
       makeOrder({ courierId: courier.id, status: Status.DELIVERED }),
       makeOrder({ courierId: courier.id, status: Status.RETURNED }),
       makeOrder({ courierId: courier.id, status: Status.PICKED_UP }),

@@ -25,7 +25,7 @@ describe('Set order status to Picked Up', () => {
     const courier = makeCourier()
     inMemoryCourierReposiotory.couriers.push(courier)
 
-    const order = makeOrder()
+    const order = makeOrder({ status: Status.PENDING })
     inMemoryOrdersRepository.orders.push(order)
 
     const response = await sut.execute({ orderId: order.id.toString() })

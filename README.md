@@ -5,7 +5,7 @@
 - [ ] It must be possible to perform CRUD operations for couriers.
 - [ ] It must be possible to perform CRUD operations for orders.
 - [ ] It must be possible to perform CRUD operations for recipients.
-- [ ] It must be possible to mark an order as "waiting" (available for pickup).
+- [ ] It must be possible to mark an order as "Pending" (available for pickup).
 - [ ] It must be possible to pick up an order.
 - [ ] It must be possible to mark an order as delivered.
 - [ ] It must be possible to mark an order as returned.

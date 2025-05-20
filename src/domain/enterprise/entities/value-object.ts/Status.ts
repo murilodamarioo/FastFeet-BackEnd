@@ -1,4 +1,5 @@
 export enum Status {
+  CREATED = 'created',
   PENDING = 'pending',
   PICKED_UP = 'picked_up',
   DELIVERED = 'delivered',
@@ -6,6 +7,10 @@ export enum Status {
 }
 
 export namespace StatusUtils {
+
+  export function isCreated(status: Status) {
+    return status === Status.CREATED
+  }
 
   export function isPending(status: Status) {
     return status === Status.PENDING

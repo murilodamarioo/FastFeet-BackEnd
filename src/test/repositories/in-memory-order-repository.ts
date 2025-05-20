@@ -47,7 +47,7 @@ export class InMemoryOrderRepository implements OrdersRepository {
       state: recipient.state,
       status: order.status,
       postedAt: order.postedAt,
-      pickupAt: order.pickupAt,
+      pickedUp: order.pickedUp,
       deliveredAt: order.deliveredAt,
     })
 

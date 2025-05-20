@@ -13,8 +13,8 @@ export interface OrderDetailsProps {
 
   // Situation
   status: string
-  postedAt: Date
-  pickupAt?: Date | null
+  postedAt?: Date | null
+  pickedUp?: Date | null
   deliveredAt?: Date | null
 }
 
@@ -36,7 +36,7 @@ export class OrderDetails extends ValueObject<OrderDetailsProps> {
 
   get postedAt() { return this.props.postedAt }
 
-  get pickupAt() { return this.props.pickupAt }
+  get pickedUp() { return this.props.pickedUp }
 
   get deliveredAt() { return this.props.deliveredAt }
   
