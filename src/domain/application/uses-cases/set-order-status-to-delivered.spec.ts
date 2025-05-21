@@ -30,7 +30,7 @@ describe('Set order status to delivered', () => {
 
     const response = await sut.execute({
       orderId: order.id.toString(),
-      photo: 'package-photo'
+      photoId: 'package-photoId'
     })
 
     expect(response.isSuccess()).toBeTruthy()
@@ -48,14 +48,14 @@ describe('Set order status to delivered', () => {
 
     const response = await sut.execute({
       orderId: order.id.toString(),
-      photo: 'package-photo'
+      photoId: 'package-photoId'
     })
 
     expect(response.isFailure()).toBeTruthy()
     expect(response.value).toBeInstanceOf(SetOrderStatusError)
   })
 
-  it('should not be able to change order status if photo is not provided', async () => {
+  it('should not be able to change order status if photoId is not provided', async () => {
     const courier = makeCourier()
 
     const order = makeOrder({
@@ -66,7 +66,7 @@ describe('Set order status to delivered', () => {
 
     const response = await sut.execute({
       orderId: order.id.toString(),
-      photo: ''
+      photoId: ''
     })
 
     expect(response.isFailure()).toBeTruthy()

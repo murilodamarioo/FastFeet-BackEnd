@@ -2,8 +2,8 @@ import { Entity } from '@core/entities/entity'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 
 export interface OrderPhotoProps {
-  orderId: string
-  photoId: string
+  orderId: UniqueEntityId
+  photoId: UniqueEntityId
 }
 
 export class OrderPhoto extends Entity<OrderPhotoProps> {
