@@ -1,7 +1,7 @@
 import { InMemoryCourierRepository } from '@test/repositories/in-memory-courier-reposiotry'
 import { RegisterCourierUseCase } from './register-courier'
 import { makeCourier } from '@test/factories/make-courier'
-import { CourierAlreadyExistsError } from './errors/courier-already-exists-error'
+import { UserAlreadyExistsError } from './errors/user-already-exists-error'
 
 
 let sut: RegisterCourierUseCase
@@ -41,6 +41,6 @@ describe('Register Courier', () => {
     })
 
     expect(response.isFailure()).toBe(true)
-    expect(response.value).instanceOf(CourierAlreadyExistsError)
+    expect(response.value).instanceOf(UserAlreadyExistsError)
   })
 })
