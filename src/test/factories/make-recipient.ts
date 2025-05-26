@@ -12,6 +12,8 @@ export function makeRecipient(override: Partial<Recipient> = {}, id?: UniqueEnti
     address: faker.location.streetAddress(),
     neighborhood: faker.location.street(),
     state: faker.location.state(),
+    latitude: faker.location.latitude(),
+    longitude: faker.location.longitude(),
     ...override
   }, id)
 

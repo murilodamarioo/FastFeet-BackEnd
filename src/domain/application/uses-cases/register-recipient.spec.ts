@@ -14,7 +14,12 @@ describe('Register Recipient', () => {
   })
   
   it('should be able to register a new recipient', async () =>  {
-    const recipient = makeRecipient()
+    const recipient = makeRecipient({
+      address: 'Avenida Paulista, 1578',
+      neighborhood: 'Bela Vista',
+      zipCode: '01311-000',
+      state: 'SP',
+    })
 
     const response = await sut.execute(recipient)
 

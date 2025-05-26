@@ -2,6 +2,7 @@ import { Either, failure, success } from '@core/either'
 import { Recipient } from '@domain/enterprise/entities/Recipient'
 import { RecipientAlreadyExistsError } from './errors/recipient-already-exists-error'
 import { RecipientsRepository } from '../repositories/recipients-repository'
+import { getCoordinatesFromAddress } from '@core/utils/get-cordinates-from-adreess'
 
 export interface RegisterRecipientUseCaseRequest {
     name: string
@@ -35,6 +36,13 @@ export class RegisterRecipientUseCase {
     if (recipientWithSameEmail) {
       return failure(new RecipientAlreadyExistsError())
     }
+    
+    const fullAddress = `${address}, ${neighborhood}, ${zipCode}, ${state}`
+
+    const coordinates = await getCoordinatesFromAddress(fullAddress)
+
+    const latitude = coordinates?.latitude ?? 0
+    const longitude = coordinates?.longitude ?? 0
 
     const recipient = Recipient.create({
       name,
@@ -44,7 +52,9 @@ export class RegisterRecipientUseCase {
       zipCode,
       address,
       neighborhood,
-      state
+      state,
+      latitude,
+      longitude
     })
 
     await this.recipientsRepository.create(recipient)

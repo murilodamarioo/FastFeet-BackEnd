@@ -15,6 +15,8 @@ export interface RecipientProps {
   address: string
   neighborhood: string
   state: string
+  latitude: number
+  longitude: number
 }
 
 export class Recipient extends Entity<RecipientProps> {
@@ -45,6 +47,12 @@ export class Recipient extends Entity<RecipientProps> {
 
   get state(): string { return this.props.state }
   set state(state: string) { this.props.state = state }
+
+  get latitude(): number { return this.props.latitude }
+  set latitude(latitude: number) { this.props.latitude = latitude }
+
+  get longitude(): number { return this.props.longitude }
+  set longitude(longitude: number) { this.props.longitude = longitude }
 
   /**
    * Creates a new instance of Recipient.
