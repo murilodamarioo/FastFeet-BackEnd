@@ -8,7 +8,6 @@ export interface EditCourierUseCaseRequest {
   name: string
   cpf: string
   email: string
-  password: string
 }
 
 type EditCourierUseCaseResponse = Either<CourierNotFoundError, { courier: Courier }>
@@ -17,7 +16,7 @@ export class EditCourierUseCase {
 
   constructor(private couriersRepository: CouriersRepository) {}
 
-  async execute({courierId, name, cpf, email, password}: EditCourierUseCaseRequest): Promise<EditCourierUseCaseResponse> {
+  async execute({courierId, name, cpf, email}: EditCourierUseCaseRequest): Promise<EditCourierUseCaseResponse> {
     const courier = await this.couriersRepository.findById(courierId)
 
     if (!courier) {
@@ -27,7 +26,6 @@ export class EditCourierUseCase {
     courier.name = name
     courier.cpf = cpf
     courier.email = email
-    courier.password = password
 
     await this.couriersRepository.save(courier)
 

@@ -28,7 +28,6 @@ describe('Edit Courier', () => {
       name: 'courier 02',
       cpf: '4321098765',
       email: 'courier02@gmail.com',
-      password: 'newpassword'
     })
 
     expect(response.isSuccess()).toBe(true)
@@ -49,7 +48,6 @@ describe('Edit Courier', () => {
       name: 'New Name',
       cpf: '12345678901',
       email: 'newemail@gmail.com',
-      password: 'newpassword'
     })
 
     expect(response.isFailure()).toBe(true)
