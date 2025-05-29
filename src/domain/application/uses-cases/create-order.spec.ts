@@ -21,6 +21,7 @@ describe('Create Order', () => {
     const response = await sut.execute({
       recipientId: order.recipientId.toString(),
       courierId: order.courierId.toString(),
+      orderName: order.orderName,
     })
 
     expect(response.isSuccess).toBeTruthy()

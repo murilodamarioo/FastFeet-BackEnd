@@ -19,7 +19,10 @@ export class CreateOrderUseCase {
     const order = Order.create({
       recipientId: new UniqueEntityId(recipientId),
       courierId: new UniqueEntityId(courierId),
-      orderName
+      orderName,
+      postedAt: null,
+      pickedUp: null,
+      deliveredAt: null
     });
 
     await this.orderepository.create(order)
