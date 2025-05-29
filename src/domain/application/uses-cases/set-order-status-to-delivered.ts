@@ -6,10 +6,15 @@ import { Status, StatusUtils } from '@domain/enterprise/entities/value-object.ts
 import { OrderPhoto } from '@domain/enterprise/entities/order-photo'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 import { PhotoNotProvidedError } from './errors/photo-not-provided-error'
+import { getDistanceBetweenCoordinates } from '@core/utils/get-distance-between-coordinates'
+import { RecipientsRepository } from '../repositories/recipients-repository'
+import { OrderDeliveryDistanceTooFarError } from './errors/order-delivery-distance-too-far-error'
 
 export interface SetOrderStatusToDeliveredUseCaseRequest {
   orderId: string
   photoId: string
+  orderLatitude: number
+  orderLongitude: number
 }
 
 type SetOrderStatusToDeliveredUseCaseResponse = Either<
@@ -18,10 +23,13 @@ type SetOrderStatusToDeliveredUseCaseResponse = Either<
 >
 export class SetOrderStatusToDeliveredUseCase {
 
-  constructor(private ordersRepository: OrdersRepository) {}
+  constructor(
+    private ordersRepository: OrdersRepository, 
+    private recipientRepository: RecipientsRepository
+  ) {}
 
   async execute(
-    { orderId, photoId }: SetOrderStatusToDeliveredUseCaseRequest
+    { orderId, photoId, orderLatitude, orderLongitude }: SetOrderStatusToDeliveredUseCaseRequest
   ): Promise<SetOrderStatusToDeliveredUseCaseResponse> {
     
     const order = await this.ordersRepository.findById(orderId)
@@ -32,6 +40,19 @@ export class SetOrderStatusToDeliveredUseCase {
 
     if (!StatusUtils.isPickedUp(order.status)) {
       return failure(new SetOrderStatusError(order.status, Status.DELIVERED))
+    }
+
+    const recipient = await this.recipientRepository.findById(order.recipientId.toString())
+
+    const distance = getDistanceBetweenCoordinates(
+      { latitude: orderLatitude, longitude: orderLongitude },
+      { latitude: recipient?.latitude, longitude: recipient?.longitude }
+    )
+
+    const MAX_DISTANCE_IN_KILOMETERS = 0.01
+
+    if (distance > MAX_DISTANCE_IN_KILOMETERS) {
+      return failure(new OrderDeliveryDistanceTooFarError())
     }
 
     if (photoId === '' || photoId === undefined || photoId === null) {
