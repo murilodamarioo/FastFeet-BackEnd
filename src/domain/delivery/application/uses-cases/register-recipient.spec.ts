@@ -1,7 +1,7 @@
 import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipient-repository'
 import { RegisterRecipientUseCase } from './register-recipient'
 import { makeRecipient } from '@test/factories/make-recipient'
-import { RecipientAlreadyExistsError } from '../../../../core/errors/errors/recipient-already-exists-error'
+import { RecipientAlreadyExistsError } from '@/core/errors/errors/recipient-already-exists-error'
 
 let sut: RegisterRecipientUseCase
 let inMemoryRecipientRepository: InMemoryRecipientRepository

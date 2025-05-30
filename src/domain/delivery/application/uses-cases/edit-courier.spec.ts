@@ -1,7 +1,7 @@
 import { InMemoryCourierRepository } from '@test/repositories/in-memory-courier-reposiotry'
 import { EditCourierUseCase } from './edit-courier'
 import { makeCourier } from '@test/factories/make-courier'
-import { CourierNotFoundError } from '../../../../core/errors/errors/courier-not-found-error'
+import { CourierNotFoundError } from '@/core/errors/errors/courier-not-found-error'
 
 let sut: EditCourierUseCase
 let inMemoryCourierRepository: InMemoryCourierRepository

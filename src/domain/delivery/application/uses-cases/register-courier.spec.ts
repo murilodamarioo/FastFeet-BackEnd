@@ -1,7 +1,7 @@
 import { InMemoryCourierRepository } from '@test/repositories/in-memory-courier-reposiotry'
 import { RegisterCourierUseCase } from './register-courier'
 import { makeCourier } from '@test/factories/make-courier'
-import { UserAlreadyExistsError } from '../../../../core/errors/errors/user-already-exists-error'
+import { UserAlreadyExistsError } from '@/core/errors/errors/user-already-exists-error'
 
 
 let sut: RegisterCourierUseCase

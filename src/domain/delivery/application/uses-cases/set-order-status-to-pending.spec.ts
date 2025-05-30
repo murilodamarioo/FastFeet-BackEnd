@@ -4,7 +4,7 @@ import { SetOrderStatusToPendingUseCase } from './set-order-status-to-pending'
 import { makeCourier } from '@test/factories/make-courier'
 import { makeOrder } from '@test/factories/make-order'
 import { Status } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
-import { SetOrderStatusError } from '../../../../core/errors/errors/set-order-status-error'
+import { SetOrderStatusError } from '@/core/errors/errors/set-order-status-error'
 
 let inMemoryOrdersRepository: InMemoryOrderRepository
 let inMemoryRecipientRepository: InMemoryRecipientRepository

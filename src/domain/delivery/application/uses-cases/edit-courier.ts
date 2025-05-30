@@ -1,4 +1,4 @@
-import { CourierNotFoundError } from '../../../../core/errors/errors/courier-not-found-error';
+import { CourierNotFoundError } from '@/core/errors/errors/courier-not-found-error';
 import { Either, failure, success } from '@core/either'
 import { CouriersRepository } from '../repositories/couriers-repository'
 import { Courier } from '@domain/delivery/enterprise/entities/Courier';

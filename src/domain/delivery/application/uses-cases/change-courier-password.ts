@@ -1,5 +1,5 @@
 import { Either, failure, success } from '@core/either'
-import { CourierNotFoundError } from '../../../../core/errors/errors/courier-not-found-error'
+import { CourierNotFoundError } from '@/core/errors/errors/courier-not-found-error'
 import { CouriersRepository } from '../repositories/couriers-repository'
 
 export interface ChangeCourierPasswordUseCaseRequest {

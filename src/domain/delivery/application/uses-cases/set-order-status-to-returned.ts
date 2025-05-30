@@ -1,6 +1,6 @@
 import { Either, failure, success } from '@core/either'
-import { OrderNotFoundError } from '../../../../core/errors/errors/order-not-found-error'
-import { SetOrderStatusError } from '../../../../core/errors/errors/set-order-status-error'
+import { OrderNotFoundError } from '@/core/errors/errors/order-not-found-error'
+import { SetOrderStatusError } from '@/core/errors/errors/set-order-status-error'
 import { OrdersRepository } from '../repositories/orders-repository'
 import { Status, StatusUtils } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
 

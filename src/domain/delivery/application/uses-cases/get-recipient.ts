@@ -1,6 +1,6 @@
 import { Either, failure, success } from '@core/either'
 import { RecipientsRepository } from '../repositories/recipients-repository'
-import { RecipientNotFoundError } from '../../../../core/errors/errors/recipient-not-found-error'
+import { RecipientNotFoundError } from '@/core/errors/errors/recipient-not-found-error'
 import { Recipient } from '@domain/delivery/enterprise/entities/Recipient'
 
 export interface GetRecipientUseCaseRequest {
