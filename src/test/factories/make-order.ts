@@ -7,6 +7,9 @@ export function makeOrder(override: Partial<OrderProps> = {}, id?: UniqueEntityI
     recipientId: new UniqueEntityId(),
     courierId: new UniqueEntityId(),
     orderName: override.orderName ?? faker.commerce.productName(),
+    postedAt: override.postedAt ?? null,
+    pickedUp: override.pickedUp ?? null,
+    deliveredAt: override.deliveredAt ?? null,
     ...override
   }, id)
 
