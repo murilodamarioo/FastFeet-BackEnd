@@ -4,10 +4,10 @@ import { SetOrderStatusToDeliveredUseCase } from './set-order-status-to-delivere
 import { makeCourier } from '@test/factories/make-courier'
 import { makeOrder } from '@test/factories/make-order'
 import { Status } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
-import { SetOrderStatusError } from './errors/set-order-status-error'
-import { PhotoNotProvidedError } from './errors/photo-not-provided-error'
+import { SetOrderStatusError } from '../../../../core/errors/errors/set-order-status-error'
+import { PhotoNotProvidedError } from '../../../../core/errors/errors/photo-not-provided-error'
 import { makeRecipient } from '@test/factories/make-recipient'
-import { OrderDeliveryDistanceTooFarError } from './errors/order-delivery-distance-too-far-error'
+import { OrderDeliveryDistanceTooFarError } from '../../../../core/errors/errors/order-delivery-distance-too-far-error'
 
 let inMemoryOrdersRepository: InMemoryOrderRepository
 let inMemoryRecipientRepository: InMemoryRecipientRepository

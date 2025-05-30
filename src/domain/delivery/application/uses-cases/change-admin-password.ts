@@ -1,6 +1,6 @@
 import { Either, failure, success } from '@core/either'
-import { AdminNotFoundError } from './errors/admin-not-found-error'
-import { NotAllowedError } from './errors/not-allowed-error'
+import { AdminNotFoundError } from '../../../../core/errors/errors/admin-not-found-error'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error'
 import { AdminRepository } from '../repositories/admin-repository'
 
 export interface ChangeAdminPasswordUseCaseRequest {

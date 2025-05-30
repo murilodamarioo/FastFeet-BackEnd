@@ -1,14 +1,14 @@
 import { Either, failure, success } from '@core/either'
-import { OrderNotFoundError } from './errors/order-not-found-error'
-import { SetOrderStatusError } from './errors/set-order-status-error'
+import { OrderNotFoundError } from '../../../../core/errors/errors/order-not-found-error'
+import { SetOrderStatusError } from '../../../../core/errors/errors/set-order-status-error'
 import { OrdersRepository } from '../repositories/orders-repository'
 import { Status, StatusUtils } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
 import { OrderPhoto } from '@domain/delivery/enterprise/entities/order-photo'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
-import { PhotoNotProvidedError } from './errors/photo-not-provided-error'
+import { PhotoNotProvidedError } from '../../../../core/errors/errors/photo-not-provided-error'
 import { getDistanceBetweenCoordinates } from '@core/utils/get-distance-between-coordinates'
 import { RecipientsRepository } from '../repositories/recipients-repository'
-import { OrderDeliveryDistanceTooFarError } from './errors/order-delivery-distance-too-far-error'
+import { OrderDeliveryDistanceTooFarError } from '../../../../core/errors/errors/order-delivery-distance-too-far-error'
 
 export interface SetOrderStatusToDeliveredUseCaseRequest {
   orderId: string

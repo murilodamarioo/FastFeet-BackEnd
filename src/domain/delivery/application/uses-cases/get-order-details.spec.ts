@@ -4,7 +4,7 @@ import { makeOrder } from '@test/factories/make-order'
 import { makeCourier } from '@test/factories/make-courier'
 import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipient-repository'
 import { makeRecipient } from '@test/factories/make-recipient'
-import { NotAllowedError } from './errors/not-allowed-error'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error'
 
 let sut: GetOrderDetailsUseCase
 let inMemoryRecipientReposiotry: InMemoryRecipientRepository

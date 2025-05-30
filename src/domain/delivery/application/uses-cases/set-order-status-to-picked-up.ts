@@ -1,8 +1,8 @@
 import { Either, failure, success } from '@core/either'
 import { OrdersRepository } from '../repositories/orders-repository'
-import { OrderNotFoundError } from './errors/order-not-found-error'
+import { OrderNotFoundError } from '../../../../core/errors/errors/order-not-found-error'
 import { Status, StatusUtils } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
-import { SetOrderStatusError } from './errors/set-order-status-error'
+import { SetOrderStatusError } from '../../../../core/errors/errors/set-order-status-error'
 
 export interface SetOrderStatusToPickedUpUseCaseRequest {
   orderId: string

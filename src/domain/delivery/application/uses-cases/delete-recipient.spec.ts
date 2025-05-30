@@ -1,7 +1,7 @@
 import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipient-repository'
 import { DeleteRecipientUseCase } from './delete-recipient'
 import { makeRecipient } from '@test/factories/make-recipient'
-import { RecipientNotFoundError } from './errors/recipient-not-found-error'
+import { RecipientNotFoundError } from '../../../../core/errors/errors/recipient-not-found-error'
 
 let sut: DeleteRecipientUseCase
 let inMemoryRecipientRepository: InMemoryRecipientRepository

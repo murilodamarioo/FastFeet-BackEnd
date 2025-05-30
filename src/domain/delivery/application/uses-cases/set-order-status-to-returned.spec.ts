@@ -4,7 +4,7 @@ import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipi
 import { makeCourier } from '@test/factories/make-courier'
 import { makeOrder } from '@test/factories/make-order'
 import { Status } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
-import { SetOrderStatusError } from './errors/set-order-status-error'
+import { SetOrderStatusError } from '../../../../core/errors/errors/set-order-status-error'
 
 let sut: SetOrderStatusToReturnedUseCase
 let inMemoryOrdersRepository: InMemoryOrderRepository

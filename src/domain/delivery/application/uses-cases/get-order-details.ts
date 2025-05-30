@@ -1,7 +1,7 @@
 import { OrdersRepository } from '../repositories/orders-repository'
 import { Either, failure, success } from '@core/either'
-import { OrderNotFoundError } from './errors/order-not-found-error'
-import { NotAllowedError } from './errors/not-allowed-error'
+import { OrderNotFoundError } from '../../../../core/errors/errors/order-not-found-error'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error'
 import { OrderDetails } from '@domain/delivery/enterprise/entities/value-object.ts/order-details'
 
 export interface GetOrderDetailsUseCaseRequest {
