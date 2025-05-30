@@ -1,4 +1,4 @@
-import { Admin } from "@domain/enterprise/entities/Admin";
+import { Admin } from "@domain/delivery/enterprise/entities/Admin";
 
 export abstract class AdminRepository {
 

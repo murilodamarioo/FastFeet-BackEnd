@@ -3,8 +3,8 @@ import { FetchCourierOrdersByStatusUseCase } from './fetch-courier-orders-by-sta
 import { InMemoryCourierRepository } from '@test/repositories/in-memory-courier-reposiotry'
 import { makeCourier } from '@test/factories/make-courier'
 import { makeOrder } from '@test/factories/make-order'
-import { Status } from '@domain/enterprise/entities/value-object.ts/Status'
-import { Order } from '@domain/enterprise/entities/Order'
+import { Status } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
+import { Order } from '@domain/delivery/enterprise/entities/Order'
 import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipient-repository'
 
 let sut: FetchCourierOrdersByStatusUseCase

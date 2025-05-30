@@ -1,5 +1,5 @@
 import { Either, success } from '@core/either'
-import { Order } from '@domain/enterprise/entities/Order'
+import { Order } from '@domain/delivery/enterprise/entities/Order'
 import { OrdersRepository } from '../repositories/orders-repository'
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
 

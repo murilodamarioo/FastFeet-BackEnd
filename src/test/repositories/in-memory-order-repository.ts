@@ -1,7 +1,7 @@
-import { OrdersRepository } from '@domain/application/repositories/orders-repository'
-import { Order } from '@domain/enterprise/entities/Order'
+import { OrdersRepository } from '@domain/delivery/application/repositories/orders-repository'
+import { Order } from '@domain/delivery/enterprise/entities/Order'
 import { InMemoryRecipientRepository } from './in-memory-recipient-repository'
-import { OrderDetails } from '@domain/enterprise/entities/value-object.ts/order-details'
+import { OrderDetails } from '@domain/delivery/enterprise/entities/value-object.ts/order-details'
 
 export class InMemoryOrderRepository implements OrdersRepository {
   

@@ -1,6 +1,6 @@
 import { Either, failure, success } from '@core/either'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
-import { Admin } from '@domain/enterprise/entities/Admin'
+import { Admin } from '@domain/delivery/enterprise/entities/Admin'
 import { AdminRepository } from '../repositories/admin-repository'
 
 export interface RegisterAdminUseCaseRequest {

@@ -3,7 +3,7 @@ import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipi
 import { SetOrderStatusToDeliveredUseCase } from './set-order-status-to-delivered'
 import { makeCourier } from '@test/factories/make-courier'
 import { makeOrder } from '@test/factories/make-order'
-import { Status } from '@domain/enterprise/entities/value-object.ts/Status'
+import { Status } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
 import { SetOrderStatusError } from './errors/set-order-status-error'
 import { PhotoNotProvidedError } from './errors/photo-not-provided-error'
 import { makeRecipient } from '@test/factories/make-recipient'

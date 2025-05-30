@@ -1,5 +1,5 @@
-import { RecipientsRepository } from "@domain/application/repositories/recipients-repository"
-import { Recipient } from "@domain/enterprise/entities/Recipient"
+import { RecipientsRepository } from "@domain/delivery/application/repositories/recipients-repository"
+import { Recipient } from "@domain/delivery/enterprise/entities/Recipient"
 
 export class InMemoryRecipientRepository extends RecipientsRepository {
   

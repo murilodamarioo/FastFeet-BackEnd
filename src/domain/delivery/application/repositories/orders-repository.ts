@@ -1,5 +1,5 @@
-import { Order } from '@domain/enterprise/entities/Order'
-import { OrderDetails } from '@domain/enterprise/entities/value-object.ts/order-details';
+import { Order } from '@domain/delivery/enterprise/entities/Order'
+import { OrderDetails } from '@domain/delivery/enterprise/entities/value-object.ts/order-details';
 
 export abstract class OrdersRepository {
 

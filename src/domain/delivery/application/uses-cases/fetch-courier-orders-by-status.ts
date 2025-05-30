@@ -2,7 +2,7 @@ import { Either, failure, success } from '@core/either'
 import { OrdersRepository } from '../repositories/orders-repository'
 import { CouriersRepository } from '../repositories/couriers-repository'
 import { CourierNotFoundError } from './errors/courier-not-found-error'
-import { Order } from '@domain/enterprise/entities/Order'
+import { Order } from '@domain/delivery/enterprise/entities/Order'
 
 export interface FetchCourierOrdersByStatusUseCaseRequest {
   courierId: string

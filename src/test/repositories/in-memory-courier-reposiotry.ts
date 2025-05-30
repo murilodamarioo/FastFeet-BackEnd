@@ -1,5 +1,5 @@
-import { CouriersRepository } from '@domain/application/repositories/couriers-repository'
-import { Courier } from '@domain/enterprise/entities/Courier'
+import { CouriersRepository } from '@domain/delivery/application/repositories/couriers-repository'
+import { Courier } from '@domain/delivery/enterprise/entities/Courier'
 
 export class InMemoryCourierRepository extends CouriersRepository {
 

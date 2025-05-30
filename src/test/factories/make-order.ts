@@ -1,5 +1,5 @@
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
-import { Order, OrderProps } from '@domain/enterprise/entities/Order'
+import { Order, OrderProps } from '@domain/delivery/enterprise/entities/Order'
 import { faker } from '@faker-js/faker'
 
 export function makeOrder(override: Partial<OrderProps> = {}, id?: UniqueEntityId) {

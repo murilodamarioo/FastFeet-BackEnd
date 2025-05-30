@@ -1,5 +1,5 @@
-import { AdminRepository } from '@domain/application/repositories/admin-repository'
-import { Admin } from '@domain/enterprise/entities/Admin';
+import { AdminRepository } from '@domain/delivery/application/repositories/admin-repository'
+import { Admin } from '@domain/delivery/enterprise/entities/Admin';
 
 export class InMemoryAdminRepository extends AdminRepository {
 

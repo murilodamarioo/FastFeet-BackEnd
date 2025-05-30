@@ -1,7 +1,7 @@
 import { CourierNotFoundError } from './errors/courier-not-found-error';
 import { Either, failure, success } from '@core/either'
 import { CouriersRepository } from '../repositories/couriers-repository'
-import { Courier } from '@domain/enterprise/entities/Courier';
+import { Courier } from '@domain/delivery/enterprise/entities/Courier';
 
 export interface EditCourierUseCaseRequest {
   courierId: string

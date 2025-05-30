@@ -1,4 +1,4 @@
-import { Courier } from '@domain/enterprise/entities/Courier'
+import { Courier } from '@domain/delivery/enterprise/entities/Courier'
 import { CouriersRepository } from '../repositories/couriers-repository'
 import { Either, failure, success } from '@core/either'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'

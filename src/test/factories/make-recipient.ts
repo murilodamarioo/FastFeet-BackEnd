@@ -1,5 +1,5 @@
 import { UniqueEntityId } from '@core/entities/unique-entity-id'
-import { Recipient } from '@domain/enterprise/entities/Recipient'
+import { Recipient } from '@domain/delivery/enterprise/entities/Recipient'
 import { faker } from '@faker-js/faker'
 
 export function makeRecipient(override: Partial<Recipient> = {}, id?: UniqueEntityId): Recipient {

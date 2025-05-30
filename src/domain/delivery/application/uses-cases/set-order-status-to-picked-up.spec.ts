@@ -4,7 +4,7 @@ import { InMemoryCourierRepository } from '@test/repositories/in-memory-courier-
 import { InMemoryOrderRepository } from '@test/repositories/in-memory-order-repository'
 import { InMemoryRecipientRepository } from '@test/repositories/in-memory-recipient-repository'
 import { SetOrderStatusToPickedUpUseCase } from './set-order-status-to-picked-up'
-import { Status } from '@domain/enterprise/entities/value-object.ts/Status'
+import { Status } from '@domain/delivery/enterprise/entities/value-object.ts/Status'
 import { SetOrderStatusError } from './errors/set-order-status-error'
 
 let inMemoryCourierReposiotory: InMemoryCourierRepository

@@ -1,5 +1,5 @@
 import { Either, failure, success } from '@core/either'
-import { Recipient } from '@domain/enterprise/entities/Recipient'
+import { Recipient } from '@domain/delivery/enterprise/entities/Recipient'
 import { RecipientAlreadyExistsError } from './errors/recipient-already-exists-error'
 import { RecipientsRepository } from '../repositories/recipients-repository'
 import { getCoordinatesFromAddress } from '@core/utils/get-cordinates-from-adreess'

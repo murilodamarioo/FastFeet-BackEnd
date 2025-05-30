@@ -1,4 +1,4 @@
-import { Courier } from '@domain/enterprise/entities/Courier'
+import { Courier } from '@domain/delivery/enterprise/entities/Courier'
 
 export abstract class CouriersRepository {
 
