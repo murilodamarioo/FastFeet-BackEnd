@@ -1,5 +1,6 @@
 import { DomainEvent } from '@core/events/domain-event'
 import { Entity } from './entity'
+import { DomainEvents } from '@core/events/domain-events'
 
 /**
  * Represents the base class for aggregate roots in the domain.
@@ -27,6 +28,7 @@ export class AggregateRoot<Props> extends Entity<Props> {
    */
   protected addDomainEvent(event: DomainEvent): void {
     this._domainEvents.push(event)
+    DomainEvents.markAggregateForDispatch(this)
   }
 
   /**
