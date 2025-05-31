@@ -33,6 +33,24 @@ export class Entity<Props> {
   }
 
   /**
+   * Checks if the entity is equal to another entity.
+   *
+   * @param {Entity<Props>} entity - The entity to compare with.
+   * @returns {boolean} True if the entities are equal, false otherwise.
+   */
+  public equals(entity: Entity<any>) {
+    if (entity === this) {
+      return true
+    }
+
+    if (entity.id === this._id) {
+      return true
+    }
+
+    return false
+  }
+
+  /**
    * Creates an instance of Entity.
    * 
    * @param {Props} props - The properties of the entity.
