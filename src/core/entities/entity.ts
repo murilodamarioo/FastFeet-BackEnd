@@ -38,7 +38,7 @@ export class Entity<Props> {
    * @param {Entity<Props>} entity - The entity to compare with.
    * @returns {boolean} True if the entities are equal, false otherwise.
    */
-  public equals(entity: Entity<any>) {
+  public equals(entity: Entity<any>): boolean {
     if (entity === this) {
       return true
     }
