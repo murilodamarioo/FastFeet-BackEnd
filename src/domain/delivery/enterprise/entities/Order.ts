@@ -3,6 +3,7 @@ import { Optional } from '@core/types/optional'
 import { Status } from './value-object.ts/Status'
 import { AggregateRoot } from '@core/entities/aggregate-root'
 import { OrderPhoto } from './order-photo'
+import { ChangeStatusEvent } from '../events/change-status-event'
 
 export interface OrderProps {
   recipientId: UniqueEntityId
@@ -60,7 +61,8 @@ export class Order extends AggregateRoot<OrderProps> {
 
   get status() { return this.props.status }
   set status(status: Status) { 
-    this.props.status = status 
+    this.props.status = status
+    this.addDomainEvent(new ChangeStatusEvent(this))
     this.touch()
   }
 

@@ -2,6 +2,7 @@ import { OrdersRepository } from '@domain/delivery/application/repositories/orde
 import { Order } from '@domain/delivery/enterprise/entities/Order'
 import { InMemoryRecipientRepository } from './in-memory-recipient-repository'
 import { OrderDetails } from '@domain/delivery/enterprise/entities/value-object.ts/order-details'
+import { DomainEvents } from '@core/events/domain-events'
 
 export class InMemoryOrderRepository implements OrdersRepository {
   
@@ -72,5 +73,7 @@ export class InMemoryOrderRepository implements OrdersRepository {
     })
 
     this.orders[orderIndex] = order
+
+    DomainEvents.dispatchEventsForAggregate(order.id)
   }
 }
