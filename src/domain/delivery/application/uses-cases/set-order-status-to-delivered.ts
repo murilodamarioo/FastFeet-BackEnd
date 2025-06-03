@@ -67,7 +67,7 @@ export class SetOrderStatusToDeliveredUseCase {
     order.status = Status.DELIVERED
     order.photo = photoAttachment
 
-    await this.ordersRepository.save(order)
+    await this.ordersRepository.updateStatus(order)
 
     return success(null)
   }

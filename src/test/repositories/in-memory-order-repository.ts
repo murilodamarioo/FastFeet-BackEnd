@@ -73,6 +73,14 @@ export class InMemoryOrderRepository implements OrdersRepository {
     })
 
     this.orders[orderIndex] = order
+  }
+
+  async updateStatus(order: Order): Promise<void> {
+    const orderIndex = this.orders.findIndex((item) => {
+      return item.id === order.id
+    })
+
+    this.orders[orderIndex] = order
 
     DomainEvents.dispatchEventsForAggregate(order.id)
   }

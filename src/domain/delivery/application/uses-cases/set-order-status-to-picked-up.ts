@@ -30,7 +30,7 @@ export class SetOrderStatusToPickedUpUseCase {
 
     order.status = Status.PICKED_UP
 
-    await this.ordersRepository.save(order)
+    await this.ordersRepository.updateStatus(order)
 
     return success(null)
   }

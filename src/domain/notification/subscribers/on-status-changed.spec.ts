@@ -21,6 +21,6 @@ describe('On status changed', () => {
 
     order.status = Status.PENDING
 
-    await inMemoryOrderRepository.save(order)
+    await inMemoryOrderRepository.updateStatus(order)
   })
 })

@@ -30,7 +30,7 @@ export class SetOrderStatusToPendingUseCase {
 
     order.status = Status.PENDING
 
-    await this.ordersRepository.save(order)
+    await this.ordersRepository.updateStatus(order)
 
     return success(null)
   }

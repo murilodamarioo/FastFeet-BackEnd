@@ -45,4 +45,12 @@ export abstract class OrdersRepository {
    */
   abstract save(order: Order): Promise<void>
 
+  /**
+   * Updates the status of an existing `Order` entity in the repository.
+   *
+   * @param {Order} order - The `Order` entity with the new status to be updated.
+   * @returns {Promise<void>} A promise that resolves when the status update operation is complete.
+   */
+  abstract updateStatus(order: Order): Promise<void>
+
 }

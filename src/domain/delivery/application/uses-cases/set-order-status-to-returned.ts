@@ -29,7 +29,7 @@ export class SetOrderStatusToReturnedUseCase {
 
     order.status = Status.RETURNED
 
-    await this.ordersRepository.save(order)
+    await this.ordersRepository.updateStatus(order)
 
     return success(null)
   }
