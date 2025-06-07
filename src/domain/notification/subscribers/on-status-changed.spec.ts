@@ -40,5 +40,13 @@ describe('On status changed', () => {
     await waitFor(() => {
       expect(sendNotificationExecuteSpy).toHaveBeenCalled()
     })
+
+    const [notificationPayload] = sendNotificationExecuteSpy.mock.calls[0]
+
+    expect(notificationPayload).toMatchObject({
+      recipientId: order.recipientId.toString(),
+      title: 'The status of your order has changed.',
+      content: `Current Status: ${order.status}`,
+    })
   })
 })

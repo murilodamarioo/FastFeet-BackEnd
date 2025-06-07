@@ -60,7 +60,19 @@ export class Order extends AggregateRoot<OrderProps> {
 
 
   get status() { return this.props.status }
-  set status(status: Status) { 
+
+  /**
+   * Updates the status of the order.
+   *
+   * When the status is changed:
+   * - The internal `status` property is updated.
+   * - A `ChangeStatusEvent` domain event is added, allowing other parts of the system
+   *   to react to the status change (e.g., sending notifications).
+   * - The `updatedAt` timestamp is refreshed to the current date and time.
+   *
+   * @param status The new status to set for the order.
+   */
+  set status(status: Status) {
     this.props.status = status
     this.addDomainEvent(new ChangeStatusEvent(this))
     this.touch()
